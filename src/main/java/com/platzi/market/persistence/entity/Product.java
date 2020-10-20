@@ -30,6 +30,10 @@ public class Product {
     @Column(name = "estado")
     private Boolean status;
 
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Category category;
+
     public Long getId() {
         return id;
     }
@@ -84,6 +88,14 @@ public class Product {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
 }

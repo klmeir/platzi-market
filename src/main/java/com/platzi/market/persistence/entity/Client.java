@@ -1,6 +1,7 @@
 package com.platzi.market.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "clientes")
@@ -24,6 +25,9 @@ public class Client {
 
     @Column(name = "correo_electronico", length = 70)
     private String email_address;
+
+    @OneToMany(mappedBy = "client")
+    private List<Purchase> purchases;
 
     public Long getId() {
         return id;
@@ -71,6 +75,14 @@ public class Client {
 
     public void setEmail_address(String email_address) {
         this.email_address = email_address;
+    }
+
+    public List<Purchase> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<Purchase> purchases) {
+        this.purchases = purchases;
     }
 
 }
