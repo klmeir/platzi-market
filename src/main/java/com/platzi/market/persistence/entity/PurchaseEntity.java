@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table( name = "compras")
-public class Purchase {
+public class PurchaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,10 +30,10 @@ public class Purchase {
 
     @ManyToOne
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
-    private Client client;
+    private ClientEntity client;
 
     @OneToMany(mappedBy = "product")
-    private List<PurchaseProduct> products;
+    private List<PurchaseProductEntity> products;
 
     public Long getId() {
         return id;
@@ -83,19 +83,19 @@ public class Purchase {
         this.status = status;
     }
 
-    public Client getClient() {
+    public ClientEntity getClient() {
         return client;
     }
 
-    public void setClient(Client client) {
+    public void setClient(ClientEntity client) {
         this.client = client;
     }
 
-    public List<PurchaseProduct> getProducts() {
+    public List<PurchaseProductEntity> getProducts() {
         return products;
     }
 
-    public void setProducts(List<PurchaseProduct> products) {
+    public void setProducts(List<PurchaseProductEntity> products) {
         this.products = products;
     }
 

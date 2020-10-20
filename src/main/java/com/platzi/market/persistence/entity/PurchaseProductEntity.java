@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "compras_productos")
-public class PurchaseProduct {
+public class PurchaseProductEntity {
 
     @EmbeddedId
     private PurchaseProductPK id;
@@ -21,11 +21,11 @@ public class PurchaseProduct {
 
     @ManyToOne
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
-    private Purchase purchase;
+    private PurchaseEntity purchase;
 
     @ManyToOne
     @JoinColumn(name = "id_producto", insertable = false, updatable = false)
-    private Product product;
+    private ProductEntity product;
 
     public PurchaseProductPK getId() {
         return id;
@@ -59,19 +59,19 @@ public class PurchaseProduct {
         this.status = status;
     }
 
-    public Purchase getPurchase() {
+    public PurchaseEntity getPurchase() {
         return purchase;
     }
 
-    public void setPurchase(Purchase purchase) {
+    public void setPurchase(PurchaseEntity purchase) {
         this.purchase = purchase;
     }
 
-    public Product getProduct() {
+    public ProductEntity getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(ProductEntity product) {
         this.product = product;
     }
 
